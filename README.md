@@ -1,2 +1,1 @@
-# amandbohra.github.io
 Resume
