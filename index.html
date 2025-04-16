@@ -91,6 +91,14 @@
     .btn:hover {
       background-color: #143654;
     }
+    .no-print {
+      display: block;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -99,7 +107,7 @@
       <h1>Aman Bohra</h1>
       <div class="subtitle">Empowering Data-driven Decisions: BI Analyst & Consultant | ETL Developer</div>
       <div class="contact">
-        ✉ <a href="mailto:bohraaman@gmail.com">bohraaman@gmail.com</a> | ☏ <a href="tel:+918369370199">+91 8369370199</a> / <a href="tel:+918055382081">+91 8055382081</a> | <a href="https://linkedin.com/in/aman-bohra" target="_blank">linkedin.com/in/aman-bohra</a>
+        ✉ <a href="mailto:bohraaman@gmail.com">bohraaman@gmail.com</a> | ☏ <a href="https://wa.me/+918369370199">+91 8369370199</a> / <a href="https://wa.me/+918055382081">+91 8055382081</a> | <a href="https://linkedin.com/in/aman-bohra" target="_blank">linkedin.com/in/aman-bohra</a>
       </div>
     </div>
 
@@ -150,7 +158,7 @@
       <div>
         <div class="section">
           <h2>Professional Summary</h2>
-          <p>7+ years' BI experience in Insurance, Retail, Pharma, Banking and other. Proficient in Qlik, SQL, SAP. Specialized in KPI-driven dashboards, data storytelling, BI delivery, and stakeholder collaboration. Skilled in leading consultant teams and data-driven strategy. </p>
+          <p>7+ years' BI experience in Insurance, Retail, Pharma, Banking and other. Proficient in Qlik, SQL, SAP. Specialized in KPI-driven dashboards, data storytelling, BI delivery, and stakeholder collaboration. Skilled in leading consultant teams and data-driven strategy.</p>
         </div>
 
         <div class="section">
@@ -175,10 +183,10 @@
         <div class="section">
           <h2>Certifications</h2>
           <ul class="certs">
-            <li><a href="#">Qlik Sense Business Analyst (QSBA)</a></li>
-            <li><a href="#">Qlik Sense Data Architect (QSDA 2024)</a></li>
-            <li><a href="#">QlikView 12 Business Analyst (QVBA)</a></li>
-            <li><a href="#">QlikView 12 Data Architect (QV12DA)</a></li>
+            <li><a href="https://www.credly.com/badges/06024566-c502-48fa-831d-eafd491ac920">Qlik Sense Business Analyst (QSBA)</a></li>
+            <li><a href="https://www.credly.com/badges/7fc2c6d4-fd70-4f77-be1a-6f8ed6c3fb51">Qlik Sense Data Architect (QSDA 2024)</a></li>
+            <li><a href="https://www.credly.com/badges/7fc2c6d4-fd70-4f77-be1a-6f8ed6c3fb51">QlikView 12 Business Analyst (QVBA)</a></li>
+            <li><a href="https://www.credly.com/badges/7fc2c6d4-fd70-4f77-be1a-6f8ed6c3fb51">QlikView 12 Data Architect (QV12DA)</a></li>
           </ul>
         </div>
 
@@ -200,7 +208,7 @@
       </div>
     </div>
 
-    <div class="btn-container">
+    <div class="btn-container no-print">
       <button class="btn" onclick="downloadPDF()">Print as PDF</button>
     </div>
   </div>
@@ -208,6 +216,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
     function downloadPDF() {
+      const printButton = document.querySelector('.btn-container');
+      printButton.style.display = 'none';
       const element = document.getElementById("resume-content");
       const opt = {
         margin: 0.2,
@@ -216,7 +226,9 @@
         html2canvas: { scale: 2, scrollY: 0 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
       };
-      html2pdf().set(opt).from(element).save();
+      html2pdf().set(opt).from(element).save().then(() => {
+        printButton.style.display = 'block';
+      });
     }
   </script>
 </body>
