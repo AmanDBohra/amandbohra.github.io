@@ -1,4 +1,4 @@
-/* ==================== THEME (DARK/LIGHT) TOGGLE ==================== */
+/*==================== THEME (DARK/LIGHT) TOGGLE ==================== */
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const moonIcon = 'fas fa-moon';
