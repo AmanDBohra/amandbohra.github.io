@@ -51,6 +51,9 @@ img { max-width: 100%; height: auto; display: block; }
     border: none;
     cursor: pointer;
 }
+.button i {
+    margin-left: 0.5rem;
+}
 .button--primary { background-color: var(--accent-color); color: var(--white-color); }
 .button--primary:hover { background-color: var(--accent-hover-color); transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0, 167, 157, 0.4); }
 .button--secondary { background-color: transparent; color: var(--text-color-light); border: 2px solid var(--text-color-light); }
